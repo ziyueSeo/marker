@@ -52,7 +52,7 @@ void ofApp::update(){
 	}
 	else cout << "you input an wrong image." << endl;
 	//m_recognizer.drawToImage();
-	
+	waitKey(30);
 }
 
 //--------------------------------------------------------------

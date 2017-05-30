@@ -46,7 +46,7 @@ void Marker::drawToImage(cv::Mat& image, cv::Scalar color, float thickness)
 	text_point.x /= 2;
 	text_point.y /= 2;
 
-	stringstream ss;
+	stringstream ss; 
 	ss << m_id;
 
 	putText(image, ss.str(), text_point, FONT_HERSHEY_SIMPLEX, 0.5, color);
@@ -85,7 +85,7 @@ int MarkerRecognizer::update(Mat& image_gray, int min_size, int min_side_length)
 	markerDetect(img_gray, possible_markers, m_size, m_side_length);
 	markerRecognize(img_gray, possible_markers, m_markers);
 	markerRefine(img_gray, m_markers);
-	drawToImage(img_gray, Scalar(255, 0, 0), 1);
+	drawToImage(img_gray, Scalar(255, 255, 0), 2);
 	return m_markers.size();
 }
 
@@ -300,4 +300,5 @@ void MarkerRecognizer::drawToImage(cv::Mat& image, cv::Scalar color, float thick
 	}
 	//m_markers.drawToImage(image, color, thickness);
 	imshow("frame", image);
+	waitKey(30);
 }
